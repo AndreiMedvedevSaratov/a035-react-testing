@@ -25,7 +25,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        // ToDo: define location for spec files here
     ],
     // Patterns to exclude.
     exclude: [
@@ -136,7 +136,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec','dot','junit',['allure', {outputDir: 'allure-results'}],'sumologic','concise','reportportal','video','json','cucumberjs-json','mochawesome','timeline','html-nice','slack','teamcity','undefined','undefined'],
 
 
     
@@ -241,8 +241,11 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (!passed) {
+            await browser.takeScreenshot();
+        }
+    },
 
 
     /**
