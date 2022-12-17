@@ -3,11 +3,6 @@
 
 name: Node.js CI
 
-env:
-  SCREENER_API_KEY: ${{ secrets.SCREENER_API_KEY }}
-  SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-  SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
-
 on:
   push:
     branches: [ "main" ]
@@ -34,6 +29,3 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-
-    - name: Start the app
-      run: npm start & npx wait-on --timeout 60000
