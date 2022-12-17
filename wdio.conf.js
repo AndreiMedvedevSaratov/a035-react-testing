@@ -26,7 +26,7 @@ exports.config = {
     //
     specs: [
         // ToDo: define location for spec files here
-        './test/specs',
+        './test/specs/example.e2e.jsx',
     ],
     // Patterns to exclude.
     exclude: [
@@ -137,7 +137,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','dot','junit',['allure', {outputDir: 'allure-results'}],'sumologic','concise','reportportal','video','json','cucumberjs-json','mochawesome','timeline','html-nice','slack','teamcity','undefined','undefined'],
+    reporters: ['spec'],
 
 
     
