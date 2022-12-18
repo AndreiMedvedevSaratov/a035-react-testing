@@ -12,3 +12,9 @@ test('url is correct', () => {
   const linkElement = screen.getByTestId('learn-link');
   expect(linkElement.href).toContain('ultimateqa.com');
 });
+
+test('url is correct', () => {
+  render(<App />);
+  const linkElement = screen.getByTestId('learn-link');
+  expect(linkElement.href).toContain('ultimateqa.com');
+});
